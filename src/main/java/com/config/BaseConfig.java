@@ -19,7 +19,7 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.repository")
-@ComponentScan("com")
+@ComponentScan("com.model")
 public class BaseConfig {
 
     private Environment environment;

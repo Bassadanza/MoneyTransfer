@@ -51,4 +51,12 @@ public class Money {
     public void setCash(Long cash) {
         this.cash = cash;
     }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "id=" + id +
+                ", cash=" + cash +
+                '}';
+    }
 }

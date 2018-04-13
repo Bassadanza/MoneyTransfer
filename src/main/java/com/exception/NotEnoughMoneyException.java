@@ -1,14 +1,20 @@
 package com.exception;
 
 public class NotEnoughMoneyException extends Exception {
-    private Long money;
+    private Long currentMoney;
+    private Long neededMoney;
 
-    public Long getMoney(){
-        return money;
+    public Long getCurrentMoney() {
+        return currentMoney;
     }
 
-    public NotEnoughMoneyException(String message, Long money){
+    public Long getNeededMoney(){
+        return neededMoney;
+    }
+
+    public NotEnoughMoneyException(String message, Long currentMoney, Long neededMoney) {
         super(message);
-        this.money = money;
+        this.currentMoney = currentMoney;
+        this.neededMoney = neededMoney;
     }
 }
