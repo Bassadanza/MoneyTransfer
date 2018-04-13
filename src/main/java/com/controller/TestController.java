@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.exception.NotEnoughMoneyException;
 import com.model.Account;
 import com.model.Money;
 import com.repository.AccountRepository;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
-    AccountRepository accountRepository;
-    TransferService transferService;
+    private AccountRepository accountRepository;
+    private TransferService transferService;
 
     @Autowired
     public TestController(AccountRepository accountRepository, TransferService transferService) {
@@ -37,7 +38,15 @@ public class TestController {
     @RequestMapping("/transfer")
     @ResponseBody
     public String handler(@RequestParam Long idFrom, @RequestParam Long idTo, @RequestParam Long cash){
-            transferService.transferMoney(accountRepository.getAccountById(idFrom), accountRepository.getAccountById(idTo), cash);
+        try {
+            Account accountFrom = accountRepository.getAccountById(idFrom);
+            Account accountTo = accountRepository.getAccountById(idTo);
+            transferService.transferMoney(accountFrom, accountTo, cash);
             return "transfer is done";
+        }catch (NullPointerException e) {
+            return "wring account id";
+        } catch (NotEnoughMoneyException e){
+            return e.getMessage() + e.getMoney();
+        }
     }
 }

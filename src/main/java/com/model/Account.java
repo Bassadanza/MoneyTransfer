@@ -40,7 +40,6 @@ public class Account implements Serializable {
         this.name = name;
     }
 
-
     public Money getMoney() {
         return money;
     }
