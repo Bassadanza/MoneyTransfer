@@ -13,7 +13,6 @@ public class Money {
     private Account account;
     private Long cash;
 
-
     public Money() {
     }
 
@@ -21,16 +20,9 @@ public class Money {
         this.cash = cash;
     }
 
-    public Money(Account account, Long cash) {
-        this.account = account;
-        this.cash = cash;
-        this.id = account.getId();
-    }
-
     public Account getAccount() {
         return account;
     }
-
 
     public void setAccount(Account account) {
         this.account = account;
