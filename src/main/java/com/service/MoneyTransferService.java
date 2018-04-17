@@ -17,10 +17,6 @@ public class MoneyTransferService implements TransferService {
     @Autowired
     private TransactionLogRepository transactionLogRepository;
 
-    public MoneyTransferService() {
-        System.out.println(1);
-    }
-
     @Transactional
     @Override
     public void transferMoney(Account from, Account to, Long money) throws NotEnoughMoneyException {

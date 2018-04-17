@@ -1,8 +1,8 @@
 package com.exception;
 
 public class NotEnoughMoneyException extends Exception {
-    private Long currentMoney;
-    private Long neededMoney;
+    private final Long currentMoney;
+    private final Long neededMoney;
 
     public Long getCurrentMoney() {
         return currentMoney;

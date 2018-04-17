@@ -43,7 +43,7 @@ public class BaseConfig {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.model", "com.repository"});
+        em.setPackagesToScan("com.model", "com.repository");
 
         Properties jpaProperties = new Properties();
 
