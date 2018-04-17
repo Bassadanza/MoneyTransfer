@@ -1,5 +1,4 @@
 pipeline {
-<<<<<<< HEAD
     agent {
         docker {
             image 'maven:3-alpine' 
@@ -13,14 +12,4 @@ pipeline {
             }
         }
     }
-=======
-  agent any
-  stages {
-    stage('') {
-      steps {
-        waitForQualityGate true
-      }
-    }
-  }
->>>>>>> origin/master
 }
